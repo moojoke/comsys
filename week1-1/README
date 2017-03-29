@@ -1,0 +1,10 @@
+1.
+#!/bin/bash
+
+ variable=$(curl http://www.textfiles.com/etext/FICTION/ | awk '{print $4 "\t" $7}' | cut -d'>' -f2,3 |cut -d '<' -f1,2 | awk -F"</A>" '{print $1 "\t" $2}' | sort -nrk2 | head -n1 | awk '{print $1 }')
+echo ""
+echo $variable " " "http://www.textfiles.com/etext/FICTION/"$variable
+
+ตั้งให้เป็นตัวแปร
+
+awk -F"</A>" การตัดมาเฉพาะบางส่วนมั้ง
